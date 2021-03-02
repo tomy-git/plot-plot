@@ -28,7 +28,7 @@
 ## 設計書
 
 - ER 図
-  <https://example.com/>
+  <https://drive.google.com/file/d/1LOEUEX9FRYnoqCX1h3PkzBqFFnNAjrMg/view?usp=sharing>
 - テーブル定義書
   <https://example.com/>
 - アプリケーション詳細設計
