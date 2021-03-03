@@ -30,7 +30,7 @@
 - ER 図
   <https://drive.google.com/file/d/1LOEUEX9FRYnoqCX1h3PkzBqFFnNAjrMg/view?usp=sharing>
 - テーブル定義書
-  <https://example.com/>
+  <https://drive.google.com/file/d/1_NeBCr_xcwhtUuQEeoM4DrqetKOx2G7z/view?usp=sharing>
 - アプリケーション詳細設計
   <https://example.com/>
 
