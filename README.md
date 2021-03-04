@@ -32,7 +32,7 @@
 - テーブル定義書
   <https://drive.google.com/file/d/1_NeBCr_xcwhtUuQEeoM4DrqetKOx2G7z/view?usp=sharing>
 - アプリケーション詳細設計
-  <https://example.com/>
+  <https://drive.google.com/file/d/10jSSYEWeVD041i0D3UiDtM8m07PnDtla/view?usp=sharing>
 
 ## チャレンジ要素一覧
 
