@@ -80,4 +80,9 @@ gem 'dotenv-rails'
 # --debug--
 gem 'pry-byebug'
 
+# deploy
+# gem 'capistrano'
+# gem 'capistrano-rails'
+# gem 'capistrano-bundler'
+
 # ----Add gems END----
