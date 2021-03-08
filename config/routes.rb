@@ -1,33 +1,27 @@
 Rails.application.routes.draw do
-  get 'relationships/index'
-  get 'relationships/show'
-  get 'relationships/create'
-  get 'relationships/destroy'
-  get 'comments/create'
-  get 'comments/update'
-  get 'comments/destroy'
-  get 'tags/index'
-  get 'tags/show'
-  get 'tags/create'
-  get 'tags/destroy'
-  get 'likes/index'
-  get 'plots/index'
-  get 'plots/show'
-  get 'plots/new'
-  get 'plots/create'
-  get 'plots/edit'
-  get 'plots/update'
-  get 'plots/destroy'
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/unsubscribe'
-  get 'users/withdrew'
-  get 'homes/top'
-  get 'homes/about'
+  # homes
+  root 'homes#top'
+  get  'about', to: 'homes#about'
+
+  # users
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, except: [:destroy] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followers', to: 'relationships#followers', as: 'followers'
+    get 'followeds', to: 'relationships#followeds', as: 'followeds'
+  end
+  get   'users/unsubscribe/:id', to: 'users#unsubscribe'
+  patch 'users/withdrew/:id',    to: 'users#withdrew'
+
+# plots
+  resources :plots do
+    resources :comments, only: [:create, :update, :destroy]
+    resources :likes,    only: [:create, :destroy]
+  end
+
+# tags
+  # resources :tags do
+  #   get 'plots', to: 'plots#search'
+  # end
+
 end
