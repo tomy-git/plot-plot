@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <h2>新規ユーザー作成</h2>
+      <div class="field form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: 'col-5 form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'col-8 form-control' %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'col-5 form-control' %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'col-5 form-control' %>
+      </div>
+
+      <div class="actions mt-3">
+        <%= f.submit "Sign up", class: "btn btn-success" %><br />
+        <%= render "devise/shared/links" %>
+      </div>
+      <% end %>
+
+      
+    </div>
+  </div>
+</div>
