@@ -13,7 +13,7 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My Profiel
+              <%= attachment_image_tag @user, :icon, :fill, fallback: 'no_image.png', size: '60x60' %>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to " MyPage", user_path(current_user.id), class: 'dropdown-item fas fa-user' %>
