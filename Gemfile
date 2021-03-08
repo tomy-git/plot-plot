@@ -70,6 +70,7 @@ gem 'jquery-rails'
 
 # --rails--
 gem 'devise'
+gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'summernote-rails', '~> 0.8.10.0'
