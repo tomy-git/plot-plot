@@ -48,6 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop-airbnb'
 end
 
 group :test do
@@ -62,6 +63,19 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# add gem
+# ----Add gems----
+# --web design--
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+
+# --rails--
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'summernote-rails', '~> 0.8.10.0'
+gem 'dotenv-rails'
+
+# --debug--
+gem 'pry-byebug'
+
+# ----Add gems END----
