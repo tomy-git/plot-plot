@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col-2">
+    <%= attachment_image_tag @user, :icon, :fill, fallback: 'no_image.png', size: '200x200' %>
+  </div>
+  <div class="col-10">
+    <h1>Users#show</h1>
+    <p>Find me in app/views/users/index.html.erb</p>
+  </div>
+</div>
