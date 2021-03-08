@@ -74,6 +74,7 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'summernote-rails', '~> 0.8.10.0'
+gem 'simple_form'
 gem 'dotenv-rails'
 
 # --debug--
