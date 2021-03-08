@@ -1,9 +1,19 @@
 <div class="row">
   <div class="col-2">
-    <%= attachment_image_tag @user, :icon, :fill, fallback: 'no_image.png', size: '200x200' %>
+    <% if @user.icon.attached? %>
+      <%= image_tag @user.icon %>
+    <% else %>
+      <%= image_tag 'no_image.png', size: '150x150' %>
+    <% end %>
   </div>
+  <div class="col-10 d-flex align-items-center">
+    <h2><%= @user.name %></h2>
+    <h4><%= @user.introduction %></h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2"></div>
   <div class="col-10">
-    <h1>Users#show</h1>
-    <p>Find me in app/views/users/index.html.erb</p>
+    <p>フォロワー数</p>
   </div>
 </div>
