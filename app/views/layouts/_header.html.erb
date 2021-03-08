@@ -11,17 +11,17 @@
       </form>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to " MyPage", user_path(current_user.id), class: 'nav-link text-light fas fa-user' %>
-          </li>
-          <li>
-            <%= link_to " Users", users_path, class: 'nav-link text-light fas fa-users' %>
-          </li>
-          <li>
-            <%= link_to " Plots", plots_path, class: 'nav-link text-light fas fa-book-open' %>
-          </li>
-          <li>
-            <%= link_to " logout", destroy_user_session_path, class: 'nav-link text-light fas fa-sign-out-alt', method: :delete  %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Profiel
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to " MyPage", user_path(current_user.id), class: 'dropdown-item fas fa-user' %>
+              <%= link_to " Users", users_path, class: 'dropdown-item fas fa-users' %>
+              <%= link_to " Plots", plots_path, class: 'dropdown-item fas fa-book-open' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to " logout", destroy_user_session_path, class: 'dropdown-item fas fa-sign-out-alt', method: :delete  %>
+            </div>
           </li>
         <% else %>
           <li>
