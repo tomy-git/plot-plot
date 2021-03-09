@@ -82,9 +82,9 @@ gem 'simple_form'
 gem 'carrierwave'
 # ここまで
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+# group :production do
+#   gem 'mysql2'
+# end
 
 # --debug--
 gem 'pry-byebug'
