@@ -82,6 +82,9 @@ gem 'simple_form'
 gem 'carrierwave'
 # ここまで
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 # --debug--
 gem 'pry-byebug'
@@ -90,5 +93,3 @@ gem 'pry-byebug'
 # gem 'capistrano'
 # gem 'capistrano-rails'
 # gem 'capistrano-bundler'
-
-# ----Add gems END----
