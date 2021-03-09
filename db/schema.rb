@@ -36,11 +36,15 @@ ActiveRecord::Schema.define(version: 2021_03_08_050704) do
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "star"
+    t.integer "user_id"
+    t.integer "plot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "plot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_050704) do
   end
 
   create_table "tagmaps", force: :cascade do |t|
+    t.integer "plot_id"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
