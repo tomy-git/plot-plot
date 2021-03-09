@@ -5,6 +5,7 @@ class PlotsController < ApplicationController
   end
 
   def show
+    @plot = Plot.find(params[:id])
   end
 
   def new
@@ -13,19 +14,25 @@ class PlotsController < ApplicationController
 
   def create
     @plot = Plot.new(plot_params)
-    @user = current_user
     @plot.user_id = current_user.id
     @plot.save
     redirect_to plot_path(@plot)
   end
 
   def edit
+    @plot = Plot.find(params[:id])
   end
 
   def update
+    @plot = Plot.find(params[:id])
+    @plot.update(plot_params)
+    redirect_to plot_path(@plot.id)
   end
 
   def destroy
+    @plot = Plot.find(params[:id])
+    @plot.destroy
+    redirect_to plots_path
   end
 
   private

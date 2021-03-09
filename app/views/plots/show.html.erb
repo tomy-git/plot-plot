@@ -1,2 +1,8 @@
 <h1>Plots#show</h1>
 <p>Find me in app/views/plots/show.html.erb</p>
+<%= @plot.title %>
+<%= @plot.body %>
+
+<%= link_to '戻る', plots_path %>
+<%= link_to '編集', edit_plot_path %>
+<%= link_to '削除', plot_path, method: :delete %>

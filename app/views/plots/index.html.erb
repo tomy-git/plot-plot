@@ -1,7 +1,11 @@
 <h1>Plots#index</h1>
 <p>Find me in app/views/plots/index.html.erb</p>
 <% @plots.each do |plot| %>
+  <%= link_to plot_path(plot.id) do %>
   <%= plot.title %>
+  <% end %>
   <%= plot.body %>
   <%#= plot.picture %>
 <% end %>
+
+<%= link_to '新規作成', new_plot_path %>

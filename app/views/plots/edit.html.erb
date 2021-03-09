@@ -1,2 +1,7 @@
 <h1>Plots#edit</h1>
 <p>Find me in app/views/plots/edit.html.erb</p>
+<%= form_with model: @plot, local: true do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body %>
+  <%= f.submit '更新' %>
+<% end %>
