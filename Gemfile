@@ -76,8 +76,11 @@ gem "refile-mini_magick"
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+# summernote関連
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
+gem 'carrierwave'
+# ここまで
 gem 'dotenv-rails'
 
 # --debug--

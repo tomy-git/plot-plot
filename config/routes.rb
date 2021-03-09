@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'uploads/create'
+  get 'uploads/destroy'
   # homes
   root 'homes#top'
   get  'about', to: 'homes#about'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :likes,    only: [:create, :destroy]
   end
+  resources :uploads, only: [:create, :destroy]
 
 # tags
   # resources :tags do

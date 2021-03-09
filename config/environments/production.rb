@@ -92,3 +92,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+# summernoteの画像アップロード本番環境で動かないため追記
+config.public_file_server.enabled = true
