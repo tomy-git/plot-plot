@@ -3,7 +3,9 @@
 <%= form_with model: @plot, local: true do |f| %>
   <label class="form-group">title</label>
     <%= f.text_field :title, class: 'form-control' %>
-  <label class="form-group">body</label>
-    <%= f.text_area :body, class: 'form-control' %>
+<div class="field">
+  <%= f.label :body %>
+  <%= f.text_area :body, 'data-provider': :summernote %>
+</div>
     <%= f.submit "Submit", class: 'btn btn-success' %>
 <% end %>
