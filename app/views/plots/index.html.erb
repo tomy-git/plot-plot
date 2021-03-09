@@ -1,2 +1,7 @@
 <h1>Plots#index</h1>
 <p>Find me in app/views/plots/index.html.erb</p>
+<% @plots.each do |plot| %>
+  <%= plot.title %>
+  <%= plot.body %>
+  <%#= plot.picture %>
+<% end %>
