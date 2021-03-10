@@ -18,10 +18,4 @@ class Plot < ApplicationRecord
       self.tags << new_plot_tag
     end
   end
-
-  def search
-    @tag_list = Tag.all
-    @tag = Tag.find(params[:tag_id])
-    @plots = @tag.posts.all
-  end
 end

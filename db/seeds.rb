@@ -30,9 +30,9 @@ User.create!(
   password: 'hogehoge'
 )
 
-User.all.each do |user|
-  user.plots.create!(
-    title: 'test post plot',
-    body: 'hoge hoge hoge hoge hoge, hoge hoge hoge hoge hoge.'
-  )
-end
+# User.all.each do |user|
+#   user.plots.create!(
+#     title: 'test post plot',
+#     body: 'hoge hoge hoge hoge hoge, hoge hoge hoge hoge hoge.'
+#   )
+# end

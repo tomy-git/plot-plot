@@ -22,7 +22,8 @@ class PlotsController < ApplicationController
     tag_list = params[:plot][:tag_name].split(nil)
     if @plot.save
       @plot.save_tag(tag_list)
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
+      redirect_to plot_path(@plot)
     else
       redirect_back(fallback_location: root_path)
     end
@@ -43,6 +44,12 @@ class PlotsController < ApplicationController
     @plot = Plot.find(params[:id])
     @plot.destroy
     redirect_to plots_path
+  end
+
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @plots = @tag.plots.all
   end
 
   private

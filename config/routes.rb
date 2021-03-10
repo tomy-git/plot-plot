@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   get   'users/unsubscribe/:id', to: 'users#unsubscribe'
   patch 'users/withdrew/:id',    to: 'users#withdrew'
 
-# plots
+  # plots
   resources :plots do
     resources :comments, only: [:create, :update, :destroy]
     resources :likes,    only: [:create, :destroy]
   end
   resources :uploads, only: [:create, :destroy]
 
-# tags
+  # tags
   resources :tags do
     get 'plots', to: 'plots#search'
   end
