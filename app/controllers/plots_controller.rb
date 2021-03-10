@@ -2,10 +2,13 @@ class PlotsController < ApplicationController
   before_action :authenticate_user!
   def index
     @plots = Plot.all
+    @tag_list = Tag.all
+    @plot = current_user.plots.new
   end
 
   def show
     @plot = Plot.find(params[:id])
+    @plot_tags = @plot.tags
   end
 
   def new
@@ -15,8 +18,15 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.new(plot_params)
     @plot.user_id = current_user.id
-    @plot.save
-    redirect_to plot_path(@plot)
+    # @plot = current_user.plots.new(plot_params)
+    tag_list = params[:plot][:tag_name].split(nil)
+    if @plot.save
+      @plot.save_tag(tag_list)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+    # redirect_to plot_path(@plot)
   end
 
   def edit

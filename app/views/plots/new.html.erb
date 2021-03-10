@@ -7,5 +7,8 @@
   <%= f.label :body %>
   <%= f.text_area :body, 'data-provider': :summernote %>
 </div>
+<div class="field">
+  <%= f.text_field :tag_name %>
+</div>
     <%= f.submit "Submit", class: 'btn btn-success' %>
 <% end %>

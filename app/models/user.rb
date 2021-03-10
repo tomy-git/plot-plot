@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :icon
-  has_many :plots
+  has_many :plots, dependent: :destroy
 
   # follower/followedはまた後で書くこと
 

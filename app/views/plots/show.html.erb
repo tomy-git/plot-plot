@@ -3,6 +3,10 @@
 <%= @plot.title %>
 <%== @plot.body %>
 
+<% @plot_tags.each do |tag| %>
+  <%= link_to tag.tag_name, tag_plots_path(tag_id: tag.id) %>
+  <%= "(#{tag.plots.count})" %>
+<% end %>
 <%= link_to '戻る', plots_path %>
 <%= link_to '編集', edit_plot_path %>
 <%= link_to '削除', plot_path, method: :delete %>

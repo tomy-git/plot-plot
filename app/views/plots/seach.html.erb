@@ -1,0 +1,5 @@
+<%= @tag_list.each do |list| %>
+  <%= link_to list.tag_name, tag_plots_path(plot_tag_id: list.id) %>
+  <%= "(#{list.posts.count})" %>
+<% end %>
+<%= link_to 'home', root_path %>
