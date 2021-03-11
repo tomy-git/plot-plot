@@ -2,7 +2,10 @@ class Plot < ApplicationRecord
   belongs_to :user
   has_many :tagmaps, dependent: :destroy
   has_many :tags, through: :tagmaps
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
+  # タグの作成・更新に使用します
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name)unless self.tags.nil?
     old_tags = current_tags - sent_tags

@@ -1,6 +1,6 @@
 inher it_from:
   - .rubocop_airbnb.yml
-
+  - .rubocop_todo.yml
 # rubocopを使いたくないファイル
 AllCops:
   - 'db/**/*'

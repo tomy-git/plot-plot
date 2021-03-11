@@ -9,6 +9,7 @@ class PlotsController < ApplicationController
   def show
     @plot = Plot.find(params[:id])
     @plot_tags = @plot.tags
+    @like = Like.new
   end
 
   def new

@@ -2,10 +2,10 @@
 <p>Find me in app/views/plots/index.html.erb</p>
 <% @plots.each do |plot| %>
   <%= link_to plot_path(plot.id) do %>
-  <%= plot.title %>
+    <%= plot.title %>
   <% end %>
-  <%== plot.body %>
-  <%#= plot.picture %>
+    <%== plot.body %>
+    <%= plot.liked_users.count %>
 <% end %>
 <h2>tag list</h2>
 <% @tag_list.each do |list| %>

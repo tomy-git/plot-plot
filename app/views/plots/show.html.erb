@@ -1,12 +1,29 @@
 <h1>Plots#show</h1>
 <p>Find me in app/views/plots/show.html.erb</p>
-<%= @plot.title %>
-<%== @plot.body %>
-
-<% @plot_tags.each do |tag| %>
+<div class="row">
+  <%= @plot.title %>
+  <%== @plot.body %>
+</div>
+<div class="row">
+  <h3>いいね <%= @plot.likes.count %> </h3>
+  <% if current_user.already_liked?(@plot) %>
+    <%= button_to 'いいね消す', plot_like_path(@plot), method: :delete %>
+  <% else %>
+    <%= button_to 'いいね', plot_likes_path(@plot) %>
+  <% end %>
+  <h3>いいねユーザー</h3>
+  <% @plot.liked_users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+</div>
+<div class="row">
+  <% @plot_tags.each do |tag| %>
   <%= link_to tag.tag_name, tag_plots_path(tag_id: tag.id) %>
   <%= "(#{tag.plots.count})" %>
 <% end %>
-<%= link_to '戻る', plots_path %>
-<%= link_to '編集', edit_plot_path %>
-<%= link_to '削除', plot_path, method: :delete %>
+</div>
+<div class="row">
+  <%= link_to '戻る', plots_path %>
+  <%= link_to '編集', edit_plot_path %>
+  <%= link_to '削除', plot_path, method: :delete %>
+</div>
