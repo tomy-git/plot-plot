@@ -12,4 +12,11 @@
   <%= link_to list.tag_name, tag_plots_path(tag_id: list.id) %>
   <%= "(#{list.plots.count})" %>
 <% end %>
-<%= link_to '新規作成', new_plot_path %>
+<div class="row">
+  <%= link_to '新規作成', new_plot_path %>
+</div>
+<div class="row">
+  <% @all_ranks.each do |plot| %>
+    <%= plot.title %>
+  <% end %>
+</div>

@@ -4,6 +4,7 @@ class PlotsController < ApplicationController
     @plots = Plot.all
     @tag_list = Tag.all
     @plot = current_user.plots.new
+    @all_ranks = Plot.find(Like.group(:plot_id).order('count(plot_id)desc').limit(3).pluck(:plot_id))
   end
 
   def show
