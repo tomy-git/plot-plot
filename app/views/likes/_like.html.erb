@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-6">
+    <h3>いいね <%= plot.likes.count %> </h3>
+  </div>
+  <div class="col-3">
+  <% if current_user.already_liked?(plot) %>
+    <%= button_to 'いいね消す', plot_like_path(plot), method: :delete, remote: true %>
+  <% else %>
+    <%= button_to 'いいね', plot_likes_path(plot), remote: true %>
+  <% end %>
+  </div>
+  <div class="col-3">
+  <h3>いいねユーザー</h3>
+  <% plot.liked_users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+  </div>
+</div>
