@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   # plots
   resources :plots do
     resources :comments, only: [:create, :update, :destroy]
-    resources :likes,    only: [:create, :destroy]
+    # likesはresorceで規定する
+    resource :likes,    only: [:create, :destroy]
   end
   resources :uploads, only: [:create, :destroy]
 

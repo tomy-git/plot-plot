@@ -21,4 +21,8 @@ class Plot < ApplicationRecord
       self.tags << new_plot_tag
     end
   end
+  
+  def liked_by?(user)
+		likes.where(user_id: user.id).exists?
+	end
 end
