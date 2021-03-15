@@ -28,4 +28,6 @@ Rails.application.routes.draw do
     get 'plots', to: 'plots#search'
   end
 
+  # searchs
+  get '/search', to: 'search#search'
 end
