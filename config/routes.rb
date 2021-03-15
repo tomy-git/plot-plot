@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   get 'uploads/create'
   get 'uploads/destroy'
   # homes
