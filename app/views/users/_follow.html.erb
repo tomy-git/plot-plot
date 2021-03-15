@@ -1,0 +1,6 @@
+<!-- フォローボタン ------------------------------------------------------------------>
+<%#= form_for(current_user, url: followed_user_path, method: :post, remote: true) do |f| %>
+<%= form_with url: user_relationships_path(@user), method: :post do |f| %>
+  <%= hidden_field_tag :followed_id, @user.id %>
+  <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+<% end %>

@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   # users
   devise_for :users
   resources :users, except: [:destroy] do
-    resource :relationships, only: [:create, :destroy]
-    get 'followers', to: 'relationships#followers', as: 'followers'
-    get 'followeds', to: 'relationships#followeds', as: 'followeds'
+    member do
+      get :followed, :followers
+    end
+    resources :relationships, only: [:create, :destroy]
+    # get 'followers', to: 'relationships#followers', as: 'followers'
+    # get 'followeds', to: 'relationships#followeds', as: 'followeds'
   end
   get   'users/unsubscribe/:id', to: 'users#unsubscribe'
   patch 'users/withdrew/:id',    to: 'users#withdrew'
