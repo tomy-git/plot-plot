@@ -8,9 +8,10 @@
     <%= form_with url:search_path, method: :get, local: true do |f| %>
       <form class="form-inline">
           <%= f.text_field 'search[value]', class: 'form-control' %>
-          <%= f.select 'search[model]', options_for_select({ "User" => "user", "Plot" => "plot" }) %>
-          <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-          <%= f.submit :"検索", class: 'btn btn-outline-success' %>
+          <%# 表示するとヘッダーが太くなるのでとりあえず･･･ %>
+          <%#= f.select 'search[model]', options_for_select({ "User" => "user", "Plot" => "plot" }) %>
+          <%#= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+          <%#= f.submit :"検索", class: 'btn btn-outline-success' %>
       </form>
     <% end %>
       <ul class="navbar-nav ml-auto">
