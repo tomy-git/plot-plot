@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :plots, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_plots, through: :likes, source: :plot
+  has_many :comments, dependent: :destroy
 
   # def already_liked?(plot)
   #   self.likes.exists?(plot_id: plot.id)

@@ -20,3 +20,19 @@
   <%= link_to '編集', edit_plot_path %>
   <%= link_to '削除', plot_path, method: :delete %>
 </div>
+<div class="row">
+  <ul>
+    <li class="comment-create">
+      <h3>コメント</h3>
+    </li>
+    <li id="comment_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </li>
+  </ul>
+  <% if user_signed_in? %>
+    <div class="comment-create">
+      <h3>投稿</h3>
+      <%= render partial: 'comments/form', locals: { comment: @comment, plot: @plot } %>
+    </div>
+    <% end %>
+</div>

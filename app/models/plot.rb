@@ -4,6 +4,7 @@ class Plot < ApplicationRecord
   has_many :tags, through: :tagmaps
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
 
   # タグの作成・更新に使用します
   def save_tag(sent_tags)

@@ -11,6 +11,8 @@ class PlotsController < ApplicationController
     @plot = Plot.find(params[:id])
     @plot_tags = @plot.tags
     # @like = Like.new
+    @comment = Comment.new
+    @comments = @plot.comments.order(created_at: :desc)
   end
 
   def new

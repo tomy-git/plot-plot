@@ -1,0 +1,10 @@
+<%= form_with(model: [plot, comment], url: plot_comments_path(@plot) ) do |f| %>
+<div class="row form-group">
+  <div class="col-10">
+    <%= f.text_area :content, class: "input-mysize form-control", placeholder: "コメント入力..." %>
+  </div>
+  <div class="col-2">
+    <%= f.submit "送信", class: "btn btn-primary comment-submit float-right" %>
+  </div>
+</div>
+<% end %>
