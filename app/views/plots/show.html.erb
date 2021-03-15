@@ -6,7 +6,7 @@
 <div class="row">
   <%== @plot.body %>
 </div>
-<div id="likes_buttons_<%= @plot.id %>">
+<div id="likes">
   <%= render partial: 'likes/like', locals: { plot: @plot } %>
 </div>
 <div class="row">

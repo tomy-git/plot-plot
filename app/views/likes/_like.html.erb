@@ -4,9 +4,9 @@
   </div>
   <div class="col-3">
   <% if current_user.already_liked?(plot) %>
-    <%= button_to 'いいね消す', plot_like_path(plot), method: :delete, remote: true %>
+    <%= link_to plot.likes.count, plot_like_path(plot), method: :delete, class: "fas fa-heart heart_red", remote: true %>
   <% else %>
-    <%= button_to 'いいね', plot_likes_path(plot), remote: true %>
+    <%= link_to plot.likes.count, plot_likes_path(plot), method: :post, class: "fas fa-heart heart_blue", remote: true %>
   <% end %>
   </div>
   <div class="col-3">
