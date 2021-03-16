@@ -1,5 +1,5 @@
-<!-- フォローボタン ------------------------------------------------------------------>
-<%= form_with model: user, url: user_relationships_path(user.id), method: :post, local: true do |f| %>
+<%# フォローボタン %>
+<%= form_with model: user, url: user_relationships_path(user.id), local: true, method: :post do |f| %>
   <%= hidden_field_tag :followed_id, user.id %>
   <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
 <% end %>
