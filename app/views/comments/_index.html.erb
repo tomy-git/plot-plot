@@ -4,6 +4,7 @@
       <th>#</th>
       <th>Name</th>
       <th>Comment</th>
+      <th>Star</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,6 +20,17 @@
         <%= link_to "@#{comment.user.name}", user_path(comment.user.id) %>
       </th>
       <th class="comment-entry"><%= comment.content %></th>
+      <th id="star-rate<%= comment.id %>" data-turbolinks='false'></th>
+        <script>
+          $('#star-rate<%= comment.id %>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            half      : false,
+            readOnly  : true,
+            score     : <%= comment.star %>,
+          });
+        </script>
         <% if comment.user == current_user %>
       <th class="comment-entry">
         <%= link_to plot_comment_path(comment.plot.id, comment.id), method: :delete, class: "comment_destroy", remote: true do %>

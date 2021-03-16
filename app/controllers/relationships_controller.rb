@@ -10,6 +10,7 @@ class RelationshipsController < ApplicationController
     current_user.follow(@user)
     # current_user.follow(params[:id])
     # render :create
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -17,5 +18,6 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user)
     # current_user.unfollow(params[:id])
     # render :destroy
+    redirect_to user_path(@user)
   end
 end
