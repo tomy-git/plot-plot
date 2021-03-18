@@ -1,0 +1,25 @@
+<%= form_with(model: [plot, comment], url: plot_comments_path(@plot) ) do |f| %>
+<div class="row form-group">
+  <div class="col-6">
+    <%= f.text_area :content, class: "input-mysize form-control", placeholder: "コメント入力..." %>
+  </div>
+  <div class="col-6" id="star" data-turbolinks='false'>
+    <%= f.label :star, 'Review', class: 'col-3 col-form-label' %>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-6">
+    <%= f.submit "送信", class: "btn btn-primary comment-submit float-right" %>
+  </div>
+</div>
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'comment[star]',
+    half: false,
+  });
+  </script>
+<% end %>

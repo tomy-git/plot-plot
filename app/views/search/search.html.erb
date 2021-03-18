@@ -1,0 +1,58 @@
+<h1>Search#search</h1>
+<p>Find me in app/views/search/search.html.erb</p>
+<div class="container">
+  <div class="col-xs-12">
+    <% if @model == "user" %>
+    <h2>Users search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Introduction</th>
+            </tr>
+        </thead>
+    <% @datas.each do |user| %>
+        <tbody>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    <%= user.name %>
+                </th>
+                <th>
+                    <%= user.introduction %>
+                </th>
+            </tr>
+        </tbody>
+    <% end %>
+    <% elsif @model == "plot" %>
+    <h2>plots search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+            </tr>
+        </thead>
+        <% @datas.each do |plot| %>
+        <tbody>
+            <tr>
+                <th>
+                    
+                </th>
+                <th>
+                    <%= plot.title %>
+                </th>
+                <th>
+                    <%= plot.body %>
+                </th>
+            </tr>
+        </tbody>
+        <% end %>
+    <% end %>
+    </table>
+  </div>
+</div>

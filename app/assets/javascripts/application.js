@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery3
-
 //= require popper
 //= require bootstrap-sprockets
 //= require summernote/summernote-bs4.min

@@ -2,10 +2,17 @@ class PlotsController < ApplicationController
   before_action :authenticate_user!
   def index
     @plots = Plot.all
+    @tag_list = Tag.all
+    @plot = current_user.plots.new
+    @all_ranks = Plot.find(Like.group(:plot_id).order('count(plot_id)desc').limit(3).pluck(:plot_id))
   end
 
   def show
     @plot = Plot.find(params[:id])
+    @plot_tags = @plot.tags
+    # @like = Like.new
+    @comment = Comment.new
+    @comments = @plot.comments.order(created_at: :desc)
   end
 
   def new
@@ -15,8 +22,16 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.new(plot_params)
     @plot.user_id = current_user.id
-    @plot.save
-    redirect_to plot_path(@plot)
+    # @plot = current_user.plots.new(plot_params)
+    tag_list = params[:plot][:tag_name].split(nil)
+    if @plot.save
+      @plot.save_tag(tag_list)
+      # redirect_back(fallback_location: root_path)
+      redirect_to plot_path(@plot)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+    # redirect_to plot_path(@plot)
   end
 
   def edit
@@ -33,6 +48,12 @@ class PlotsController < ApplicationController
     @plot = Plot.find(params[:id])
     @plot.destroy
     redirect_to plots_path
+  end
+
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @plots = @tag.plots.all
   end
 
   private

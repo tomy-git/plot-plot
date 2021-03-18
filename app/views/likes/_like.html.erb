@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-6">
+    <h3>いいね <%= plot.likes.count %> </h3>
+  </div>
+  <div class="col-3">
+  <% if plot.liked_by?(current_user) %>
+    <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :delete, class: "fas fa-heart heart_red", remote: true %>
+  <% else %>
+    <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :post, class: "fas fa-heart heart_blue", remote: true %>
+  <% end %>
+  </div>
+  <div class="col-3">
+  <h3>いいねユーザー</h3>
+  <% plot.liked_users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+  </div>
+</div>
