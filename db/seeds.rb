@@ -7,32 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-  email:    'hoge@hoge.com',
-  name:     'hoge',
-  password: 'hogehoge'
+  email:    ENV['EMAIL1'],
+  name:     ENV['NAME1'],
+  password: ENV['PASSWORD']
 )
 
 User.create!(
-  email:    'ruby@hoge.com',
-  name:     'ruby',
-  password: 'hogehoge'
+  email:    ENV['EMAIL2'],
+  name:     ENV['NAME2'],
+  password: ENV['PASSWORD']
 )
 
 User.create!(
-  email:    'ror@hoge.com',
-  name:     'ror',
-  password: 'hogehoge'
+  email:    ENV['EMAIL3'],
+  name:     ENV['NAME3'],
+  password: ENV['PASSWORD']
 )
 
-User.create!(
-  email:    'aws@hoge.com',
-  name:     'aws',
-  password: 'hogehoge'
+Plot.create!(
+  title: 'test1',
+  body: 'This is test plot.',
+  user_id: 1,
 )
-
-# User.all.each do |user|
-#   user.plots.create!(
-#     title: 'test post plot',
-#     body: 'hoge hoge hoge hoge hoge, hoge hoge hoge hoge hoge.'
-#   )
-# end
