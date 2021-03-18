@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   get  'about', to: 'homes#about'
 
   # users
-  devise_for :users
+  devise_for :users,
+  controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  end
   resources :users, except: [:destroy] do
     member do
       get :followed, :followers
