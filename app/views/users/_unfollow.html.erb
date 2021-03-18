@@ -1,4 +1,4 @@
 <%# フォロー解除ボタン %>
-<%= form_with model: user, url: user_relationship_path(user.id), local: true, method: :delete do |f| %>
+<%= form_with model: user, url: user_relationship_path(user.id), remote: true, method: :delete do |f| %>
   <%= f.submit "フォロー解除", class: "btn btn-outline-secondary" %>
 <% end %>
