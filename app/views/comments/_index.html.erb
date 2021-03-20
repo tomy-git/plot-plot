@@ -22,6 +22,7 @@
       <th class="comment-entry"><%= comment.content %></th>
       <th id="star-rate<%= comment.id %>" data-turbolinks='false'></th>
         <script>
+          $('#star-rate<%= comment.id %>').empty();
           $('#star-rate<%= comment.id %>').raty({
             size      : 36,
             starOff   : '<%= asset_path('star-off.png') %>',
