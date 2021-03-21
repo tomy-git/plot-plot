@@ -77,7 +77,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
-gem 'omniauth'
+gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-google-oauth2'
 # summernote関連
 gem 'summernote-rails', '~> 0.8.10.0'
