@@ -1,13 +1,10 @@
-inherit_from: .rubocop_todo.yml
+# inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-rails
 
 Rails:
   Enabled: true
-  
-HashSyntax:
-  EnforcedStyle: ruby19
 
 AllCops:
   Exclude:
@@ -27,3 +24,7 @@ AllCops:
 # 日本語でのコメントを許可
 AsciiComments:
   Enabled: false
+
+# 矢印は使わない
+HashSyntax:
+  EnforcedStyle: ruby19
