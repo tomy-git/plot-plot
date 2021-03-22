@@ -82,6 +82,7 @@ gem 'omniauth-google-oauth2'
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'aws-sdk-s3', require: false
 # ここまで
 
 gem 'dotenv-rails'
