@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-2">
+      <%= attachment_image_tag user, :icon, size: '150x150', fallback: 'no_image.png', class: 'img-thumbnail' %>
+  </div>
+  <div class="col-6 d-flex flex-column">
+    <h2 class="p-2"><%= user.name %></h2>
+    <h4 class="p-2">Biography</h4>
+    <h6 class="p-2"><%= user.introduction %></h6>
+    <div class="d-flex flex-row">
+      <div>
+        <%= link_to followed_user_path(user.id) do %>
+          <p><%= user.followed.count %> フォロー中</p>
+        <% end %>
+      </div>
+      <div class="ml-5">
+        <%= link_to followers_user_path(user.id) do %>
+          <p><%= user.followers.count %> フォロワー</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <div class="row">
+    <% if user_signed_in? && user.id == current_user.id %>
+      <%= link_to ' プロフィール編集', edit_user_path, class: 'fas fa-user-edit btn-block btn btn-secondary' %>
+    <% else %>
+      <%= render partial: "relationships/follow_form", locals: { user: @user } %>
+    <% end %>
+    </div>
+    <div class="row mt-2">
+      <%= link_to " プロットを書く！", new_plot_path, class: 'fas fa-book-open btn-block btn btn-success' %>
+    </div>
+  </div>
+</div>

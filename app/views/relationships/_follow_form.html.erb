@@ -2,9 +2,9 @@
 <% if user_signed_in? && user != current_user %>
   <div id="follow_form">
     <% if current_user.followed?(user) %>
-      <%= render partial: 'users/unfollow', locals: { user: @user } %>
+      <%= render partial: 'relationships/unfollow', locals: { user: @user } %>
     <% else %>
-      <%= render partial: 'users/follow', locals: { user: @user } %>
+      <%= render partial: 'relationships/follow', locals: { user: @user } %>
     <% end %>
   </div>
 <% end %>

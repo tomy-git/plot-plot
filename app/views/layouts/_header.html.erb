@@ -4,7 +4,7 @@
       <a class="navbar-dark navbar-brand" href="/">プロット・プロット</a>
       <div class="collapse navbar-collapse">
         <%# 検索バー %>
-        <%= render 'layouts/search' %>
+        <%= render 'layouts/nav/search' %>
       </div>
     </div>
   </nav>
@@ -12,9 +12,9 @@
     <div class="container">
       <div class="collapse navbar-collapse">
         <%# プロット関連のメニュー %>
-        <%= render 'layouts/plot-menu' %>
+        <%= render 'layouts/nav/menu-l' %>
         <%# ナビゲーションバーのユーザーメニュー %>
-        <%= render 'layouts/user-menu' %>
+        <%= render 'layouts/nav/menu-r' %>
       </div>
     </div>
   </nav>
