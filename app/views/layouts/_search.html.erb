@@ -1,17 +1,17 @@
-<div class="form-inline" role="form">
+<div class="form-inline ml-auto" role="form">
   <%= form_with url:search_path, method: :get, local: true do |f| %>
     <form class="form-inline">
       <div class="form-group">
         <div>
           <%= f.text_field 'search[value]', class: 'form-control' %>
         </div>
-        <div class="ml-1">
+        <div class="ml-2">
           <%= f.select 'search[model]', options_for_select({ "User" => "user", "Plot" => "plot" }), {}, class: 'form-control' %>
         </div>
-        <div class="ml-1">
+        <div class="ml-2">
           <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }), {}, class: 'form-control' %>
         </div>
-        <div class="ml-1">
+        <div class="ml-2">
           <%= f.submit :"検索", class: 'btn btn-success' %>
         </div>
       </div>
