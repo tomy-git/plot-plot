@@ -1,18 +1,5 @@
 <div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3 title">プロット・プロット</h1>
-    <p>
-      <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        このサイトは？
-      </button>
-    </p>
-    <div class="collapse" id="collapseExample" style="">
-      <div class="card card-body">
-        <p>物語の「プロット」を集めて公開、クリエイティブ・コモンズ・ライセンスの元で自由に利用することができるコミュニティサイトです。</p>
-        <p>利用方法やライセンスについては <%= link_to " こちら", about_path %></p>
-      </div>
-    </div>
-  </div>
+  <%= render 'card' %>
 </div>
 <div class="container">
   <%= render 'pickup' %>
