@@ -34,4 +34,6 @@ Rails.application.routes.draw do
 
   # searchs
   get '/search', to: 'search#search'
+
+  # 404 not foundなどをいれたい
 end

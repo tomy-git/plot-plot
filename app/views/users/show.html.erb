@@ -1,45 +1,42 @@
 <div class="row">
   <div class="col-2">
-    <%# if @user.icon.attached? %>
-      <%#= image_tag @user.icon, size: '150x150' %>
-      <%# refileはだめっぽい %>
-      <%= attachment_image_tag @user, :icon, size: '150x150', fallback: 'no_image.png' %>
-    <%# else %>
-      <%#= image_tag 'no_image.png', size: '150x150' %>
-    <%# end %>
+      <%= attachment_image_tag @user, :icon, size: '150x150', fallback: 'no_image.png', class: 'img-thumbnail' %>
   </div>
   <div class="col-6 d-flex flex-column">
     <h2 class="p-2"><%= @user.name %></h2>
-    <h4 class="p-2"><%= @user.introduction %></h4>
-    <p>フォロワー数</p>
+    <h4 class="p-2">Biography</h4>
+    <h6 class="p-2"><%= @user.introduction %></h6>
+    <div class="d-flex flex-row">
+      <div>
+        <%= link_to followed_user_path(@user.id) do %>
+          <p><%= @user.followed.count %> フォロー中</p>
+        <% end %>
+      </div>
+      <div class="ml-5">
+        <%= link_to followers_user_path(@user.id) do %>
+          <p><%= @user.followers.count %> フォロワー</p>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="col-3 offset-1">
-    <%= link_to '設定', edit_user_path, class: 'btn btn-info' %>
+  <div class="col-2">
+    <div class="row">
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <%= link_to ' プロフィール編集', edit_user_path, class: 'fas fa-user-edit btn-block btn btn-secondary' %>
+    <% else %>
+      <%= render partial: "follow_form", locals: { user: @user } %>
+    <% end %>
+    </div>
+    <div class="row mt-2">
+
+    </div>
   </div>
 </div>
 <div class="d-flex flex-column">
-<%# 投稿一覧とブックマークをボタンを押すと出てくる感じにする %>
-<h3>いいねした投稿</h3>
-<% @user.liked_plots.each do |plot| %>
-  <%= plot.user.name %>
-  <%= plot.title %>
-<% end %>
-</div>
-<div class="follower">
-    <%= link_to followers_user_path(@user.id) do %>
-        <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
-    <% end %>
-</div>
-<div class="follow">
-    <%= link_to followed_user_path(@user.id) do %>
-              <h5 style="color: black;">フォロー<%= @user.followed.count %>人</h5>
-    <% end %>
-</div>
-<div>
-    <%= render partial: "follow_form", locals: { user: @user } %>
-</div>
-<div class="row">
-  <% if user_signed_in? && @user.id == current_user.id %>
-    <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+  <%# 投稿一覧とブックマークをボタンを押すと出てくる感じにする %>
+  <h3>いいねした投稿</h3>
+  <% @user.liked_plots.each do |plot| %>
+    <%= plot.user.name %>
+    <%= plot.title %>
   <% end %>
 </div>
