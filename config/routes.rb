@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     # get 'followers', to: 'relationships#followers', as: 'followers'
     # get 'followeds', to: 'relationships#followeds', as: 'followeds'
   end
-  get   'users/unsubscribe/:id', to: 'users#unsubscribe'
+  put "/users/:id/hide", to: "users#hide", as: "users_hide"
   patch 'users/withdrew/:id',    to: 'users#withdrew'
 
   # plots

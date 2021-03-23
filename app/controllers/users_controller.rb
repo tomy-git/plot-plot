@@ -29,7 +29,12 @@ class UsersController < ApplicationController
     render 'relationships/show'
   end
 
-  def unsubscribe
+  def hide
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ご利用ありがとうございました。"
+    redirect_to root_path
   end
 
   def withdrew

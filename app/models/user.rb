@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  def active_for_authentication?
+    super && (self.is_deleted == false )
+  end
+
   def followed?(user)
     followed_relationships.find_by(followed_id: user.id)
   end
