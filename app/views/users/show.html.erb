@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-2">
-    <% if @user.icon.attached? %>
-      <%= image_tag @user.icon, size: '150x150' %>
+    <%# if @user.icon.attached? %>
+      <%#= image_tag @user.icon, size: '150x150' %>
       <%# refileはだめっぽい %>
-      <%#= attachment_image_tag @user, :icon, :fill, size: "150x150" %>
-    <% else %>
-      <%= image_tag 'no_image.png', size: '150x150' %>
-    <% end %>
+      <%= attachment_image_tag @user, :icon, size: '150x150', fallback: 'no_image.png' %>
+    <%# else %>
+      <%#= image_tag 'no_image.png', size: '150x150' %>
+    <%# end %>
   </div>
   <div class="col-6 d-flex flex-column">
     <h2 class="p-2"><%= @user.name %></h2>

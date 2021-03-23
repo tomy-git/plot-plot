@@ -6,6 +6,7 @@
   <label class="form-group">Introduction</label>
   <%= f.text_area :introduction, placeholder: '自己紹介...', class: 'form-control' %>
   <label class="form-group">icon</label>
-  <%= f.file_field :icon %>
+  <%= f.attachment_field :icon %>
+  <%#= f.file_field :image %>
   <%= f.submit "Submit", class: 'btn btn-secondary' %>
 <% end %>

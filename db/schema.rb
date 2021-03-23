@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_030807) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "icon_id"
     t.string "name"
     t.string "introduction"
     t.boolean "is_deleted", default: false
