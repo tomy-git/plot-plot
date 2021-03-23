@@ -1,0 +1,11 @@
+<h3>いいねした投稿</h3>
+<div class="row">
+  <div class="col">
+
+  </div>
+</div>
+
+<% user.liked_plots.each do |plot| %>
+  <%= plot.user.name %>
+  <%= plot.title %>
+<% end %>
