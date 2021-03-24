@@ -10,8 +10,8 @@
   <thead class="thead-dark">
     <tr>
       <th>タイトル</th>
-      <th></th>
-      <th></th>
+      <th>いいね数</th>
+      <th>投稿日時</th>
       <th></th>
     </tr>
   </thead>
@@ -25,9 +25,11 @@
         <%= plot.likes.count %> いいね
       </td>
       <td>
+        <%= plot.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      </td>
+      <td>
         <%= link_to '作品を読む', plot_path(plot.id), class: 'btn btn-success' %>
       </td>
-      <td></td>
     </tr>
   <% end %>
   </tbody>

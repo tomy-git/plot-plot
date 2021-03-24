@@ -35,6 +35,7 @@ class PlotsController < ApplicationController
 
   def edit
     @plot = Plot.find(params[:id])
+    # @plot_tag = Tag.where(id: tagmap{ |tag_name| tag.id })
   end
 
   def update

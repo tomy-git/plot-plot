@@ -10,7 +10,7 @@
     <%= f.text_field :tag_name, class: 'form-control' %>
   </div>
   <div class="col-2 field">
-    <label class="form-group">保存ボタン</label>
+    <%= link_to '投稿をキャンセル', plots_path, class: 'btn-block btn btn-outline-primary' %>
     <%= f.submit " 投稿を確定する", class: 'btn-block btn btn-success' %>
   </div>
 </div>
