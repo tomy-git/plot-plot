@@ -2,7 +2,7 @@ class Plot < ApplicationRecord
   belongs_to :user
   has_many :tagmaps, dependent: :destroy
   has_many :tags, through: :tagmaps
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
 

@@ -1,5 +1,7 @@
 class PlotsController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_check, only: [:edit, :destroy, :update]
+
   def index
     @plots = Plot.all
     @tag_list = Tag.all
@@ -22,16 +24,13 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.new(plot_params)
     @plot.user_id = current_user.id
-    # @plot = current_user.plots.new(plot_params)
     tag_list = params[:plot][:tag_name].split(nil)
     if @plot.save
       @plot.save_tag(tag_list)
-      # redirect_back(fallback_location: root_path)
       redirect_to plot_path(@plot)
     else
       redirect_back(fallback_location: root_path)
     end
-    # redirect_to plot_path(@plot)
   end
 
   def edit
@@ -57,7 +56,15 @@ class PlotsController < ApplicationController
   end
 
   private
+
   def plot_params
     params.require(:plot).permit(:title, :body)
+  end
+
+  # 実行者＝投稿者であることを確認して編集・削除を許可
+  def user_check
+    unless Plot.find(params[:id]).user.id.to_i == current_user.id
+      redirect_to plots_path
+    end
   end
 end

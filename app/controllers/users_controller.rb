@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
@@ -33,14 +37,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "ご利用ありがとうございました。"
     redirect_to root_path
   end
 
-  def withdrew
-  end
-
   private
+
   def user_params
     params.require(:user).permit(:name, :introduction, :icon)
   end

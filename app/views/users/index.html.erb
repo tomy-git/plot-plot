@@ -14,7 +14,7 @@
     <tr>
       <th scope="row">
         <%= link_to user_path(user.id) do %>
-          <%= attachment_image_tag user, :icon, size: '60x60', fallback: 'no_image.png' %>
+          <%= attachment_image_tag user, :icon, size: '80x80', fallback: 'no_image.png' %>
         <% end %>
       </th>
       <td><%= user.name %></td>

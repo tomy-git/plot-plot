@@ -6,7 +6,7 @@
           <%= f.text_field 'search[value]', class: 'form-control' %>
         </div>
         <div class="ml-2">
-          <%= f.select 'search[model]', options_for_select({ "User" => "user", "Plot" => "plot" }), {}, class: 'form-control' %>
+          <%= f.select 'search[model]', options_for_select({ "ユーザー" => "user", "プロット" => "plot" }), {}, class: 'form-control' %>
         </div>
         <div class="ml-2">
           <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }), {}, class: 'form-control' %>
