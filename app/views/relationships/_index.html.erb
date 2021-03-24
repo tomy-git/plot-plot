@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-3">
+    <h1 class="title">フォロー中</h1>
+  </div>
+  <div class="col-3 d-flex flex-wrap align-content-center">
+    <h5><%= user.followed.count %> フォロー中</h5>
+  </div>
+</div>
+<table class="table table-hover mt-3">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th>ユーザー名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% user.followed.each do |user| %>
+    <tr>
+      <th scope="row">
+        <%= attachment_image_tag( user, :icon, size: '80x80', fallback: 'no_image.png') %>
+      </th>
+      <td><%= user.name %></td>
+      <td><%= link_to 'ユーザーページを見る', user_path(user.id), class: 'btn btn-success' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
