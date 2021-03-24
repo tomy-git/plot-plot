@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :uploads, only: [:create, :destroy]
 
   # tags
-  resources :tags do
+  resources :tags, only: [:index] do
     get 'plots', to: 'plots#search'
   end
 
