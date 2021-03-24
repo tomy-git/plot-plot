@@ -9,6 +9,7 @@ class PlotsController < ApplicationController
 
   def show
     @plot = Plot.find(params[:id])
+    @user = @plot.user
     @plot_tags = @plot.tags
     # @like = Like.new
     @comment = Comment.new
