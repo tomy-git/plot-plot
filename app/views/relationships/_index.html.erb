@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-3">
+  <div class="col-6">
     <h1 class="title">フォロー中</h1>
   </div>
-  <div class="col-3 d-flex flex-wrap align-content-center">
-    <h5><%= user.followed.count %> フォロー中</h5>
+  <div class="col-6 d-flex flex-wrap align-content-center">
+    <h5><%= user.name %>さんは <%= user.followed.count %> フォロー中です</h5>
   </div>
 </div>
 <table class="table table-hover mt-3">

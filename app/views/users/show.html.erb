@@ -1,4 +1,4 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column mb-3">
   <%= render 'info', user: @user %>
   <%# 投稿一覧とブックマークをボタンを押すと出てくる感じにする %>
 </div>
@@ -17,7 +17,9 @@
   </li>
 </ul>
 <div class="tab-content">
-  <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">This is a text of item#1.</div>
+  <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+    <%= render 'plot', user: @user %>
+  </div>
   <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
     <%= render 'like', user: @user %>
   </div>

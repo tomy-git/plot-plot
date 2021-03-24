@@ -6,10 +6,4 @@
       <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :post, class: "fas fa-heart heart_blue", remote: true %>
     <% end %>
   </div>
-  <div class="col-6 d-flex flex-wrap align-content-center">
-    <h5>いいね！</h5>
-    <% plot.liked_users.each do |user| %>
-      <%= user.name %>
-    <% end %>
-  </div>
 </div>

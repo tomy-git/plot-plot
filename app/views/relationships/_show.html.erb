@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-3">
+  <div class="col-6">
     <h1 class="title">フォロワー</h1>
   </div>
-  <div class="col-3 d-flex flex-wrap align-content-center">
-    <h5><%= user.followers.count %> フォロー</h5>
+  <div class="col-6 d-flex flex-wrap align-content-center">
+    <h5><%= user.name %>さんは <%= user.followers.count %> フォローされています</h5>
   </div>
 </div>
 <table class="table table-hover mt-3">

@@ -1,31 +1,33 @@
 <div class="row">
   <div class="col-6">
-    <h1 class="title">いいね！</h1>
+    <h1 class="title">投稿作品</h1>
   </div>
   <div class="col-6 d-flex flex-wrap align-content-center">
-    <h5><%= user.name %>さんは <%= user.likes.count %> 回いいね！しています</h5>
+    <h5><%= user.name %>さんは <%= user.plots.count %> 個の投稿をしています</h5>
   </div>
 </div>
 <table class="table table-hover mt-3">
   <thead class="thead-dark">
     <tr>
-      <th></th>
-      <th>ユーザー名</th>
       <th>タイトル</th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-  <% user.liked_plots.each do |plot| %>
+  <% user.plots.each do |plot| %>
     <tr>
       <th scope="row">
-        <%= attachment_image_tag( user, :icon, size: '80x80', fallback: 'no_image.png') %>
+        <%= plot.title %>
       </th>
-      <td><%= plot.user.name %></td>
-      <td><%= plot.title %></td>
+      <td>
+        <%= plot.likes.count %> いいね
+      </td>
       <td>
         <%= link_to '作品を読む', plot_path(plot.id), class: 'btn btn-success' %>
       </td>
+      <td></td>
     </tr>
   <% end %>
   </tbody>
