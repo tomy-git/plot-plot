@@ -8,7 +8,6 @@
   <div class="col-5 field">
     <label class="form-group">タグ（カンマで複数設定できます）</label>
       <%= f.text_field :tag_name, value: @plot_tags, class: 'form-control' %>
-      <%# link_to tag.tag_name, tag_plots_path(tag_id: tag.id), class: 'btn btn-sm btn-outline-secondary' %>
   </div>
   <div class="col-2 field">
     <%= link_to '編集をキャンセル', plot_path(@plot.id), class: 'btn-block btn btn-outline-primary' %>

@@ -31,11 +31,4 @@ class User < ApplicationRecord
   def unfollow(user)
     followed_relationships.find_by(followed_id: user.id).destroy
   end
-
-  # def already_liked?(plot)
-  #   self.likes.exists?(plot_id: plot.id)
-  # end
-
-  # follower/followedはまた後で書くこと
-
 end
