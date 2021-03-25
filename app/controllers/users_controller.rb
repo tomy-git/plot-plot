@@ -22,17 +22,17 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
-  def followed
-    @user = User.find(params[:id])
-    @users = @user.followed
-    render 'relationships/index'
-  end
+  # def followed
+  #   @user = User.find(params[:id])
+  #   @users = @user.followed
+  #   render 'relationships/index'
+  # end
 
-  def followers
-    @user = User.find(params[:id])
-    @users = @user.followers
-    render 'relationships/show'
-  end
+  # def followers
+  #   @user = User.find(params[:id])
+  #   @users = @user.followers
+  #   render 'relationships/show'
+  # end
 
   def hide
     @user = User.find(params[:id])
