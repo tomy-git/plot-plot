@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>タイトル</th>
+      <th>ユーザー名</th>
+      <th>いいね！</th>
+      <th>投稿日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% plots.each do |plot| %>
+    <tr>
+      <th scope="row">
+        <%= plot.title %>
+      </th>
+      <td>
+        <%= plot.user.name %>
+      </td>
+      <td id="likes">
+        <% if plot.liked_by?(current_user) %>
+          <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :delete, class: "fas fa-heart heart_red", remote: true %>
+        <% else %>
+          <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :post, class: "fas fa-heart heart_blue", remote: true %>
+        <% end %>
+      </td>
+      <td>
+        <%= plot.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      </td>
+      <td>
+        <%= link_to '作品を読む', plot_path(plot.id), class: 'btn btn-success' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

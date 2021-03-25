@@ -1,7 +1,7 @@
 <ul class="navbar-nav">
   <% if user_signed_in? %>
     <li>
-      <%= link_to " プロットを書いてみる", new_plot_path, class: 'nav-link text-light fas fa-book-open' %>
+      <%= link_to " 投稿されたプロットを見る", plots_path, class: 'nav-link text-light fas fa-book-reader' %>
     </li>
     <li>
       <%= link_to " 他のユーザーを見る", users_path, class: 'nav-link text-light fas fa-users' %>
@@ -9,10 +9,9 @@
     <li>
       <%= link_to " タグから探す", tags_path, class: 'nav-link text-light fas fa-tags' %>
     </li>
-    <li>
-      
-    </li>
   <% else %>
-    <li>ようこそ ゲスト さん</li>
+    <li>
+      <%= link_to " このサイトについて", about_path, class: 'nav-link text-light fas fa-info-circle'%>
+    </li>
   <% end %>
 </ul>

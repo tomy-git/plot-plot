@@ -12,7 +12,7 @@
   <div class="col-8 offset-4">
     <h5>登録されたタグ</h5>
     <% @plot_tags.each do |tag| %>
-      <%= link_to tag.tag_name, tag_plots_path(tag_id: tag.id), class: 'btn btn-sm btn-outline-secondary' %>
+      <%= link_to tag.tag_name, tag_path(tag.id), class: 'btn btn-sm btn-outline-secondary' %>
       <%= "(#{tag.plots.count})" %>
     <% end %>
   </div>

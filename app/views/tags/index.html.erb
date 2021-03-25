@@ -1,6 +1,3 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
-<% @tag_list.each do |list| %>
-  <%= link_to list.tag_name, tag_plots_path(tag_id: list.id) %>
-  <%= "(#{list.plots.count})" %>
-<% end %>
+<h1 class="title">タグ</h1>
+<h4>タグからお気に入りのプロットを探そう！</h4>
+<%= render 'tags', tag_list: @tag_list %>
