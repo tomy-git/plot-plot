@@ -35,13 +35,20 @@ class PlotsController < ApplicationController
 
   def edit
     @plot = Plot.find(params[:id])
+    @plot_tags = @plot.tags.pluck(:tag_name).split(nil)
     # @plot_tag = Tag.where(id: tagmap{ |tag_name| tag.id })
   end
 
   def update
     @plot = Plot.find(params[:id])
     @plot.update(plot_params)
-    redirect_to plot_path(@plot.id)
+    tag_list = params[:plot][:tag_name].split(nil)
+    if @plot.update_attributes(plot_params)
+      @plot.save_tag(tag_list)
+      redirect_to plot_path(@plot.id)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def destroy

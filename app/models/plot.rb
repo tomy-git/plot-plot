@@ -13,7 +13,7 @@ class Plot < ApplicationRecord
     new_tags = sent_tags - current_tags
 
     old_tags.each do |old|
-      self.plot_tags.delete PlotTag.find_by(tag_name: old)
+      self.tags.delete PlotTag.find_by(tag_name: old)
     end
     new_tags.each do |new|
       new_plot_tag = Tag.find_or_create_by(tag_name: new)
