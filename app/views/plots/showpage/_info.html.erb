@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="col-5 offset-1 d-flex flex-wrap align-content-center">
-    <div id="likes">
+    <div id="likes_<%= @plot.id %>">
       <%= render partial: 'likes/like', locals: { plot: @plot } %>
     </div>
   </div>

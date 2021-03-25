@@ -17,7 +17,7 @@
       <td>
         <%= plot.user.name %>
       </td>
-      <td id="likes">
+      <td id="likes_<%= plot.id %>">
         <% if plot.liked_by?(current_user) %>
           <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :delete, class: "fas fa-heart heart_red", remote: true %>
         <% else %>
