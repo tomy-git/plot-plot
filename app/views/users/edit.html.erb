@@ -1,11 +1,36 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1 class="title">プロフィール編集</h1>
 <%= form_with model: @user, local: true do |f| %>
-  <label class="form-group">Name</label>
-  <%= f.text_field :name, autofocus: true, id: "inputName, focusedInput", placeholder: "name", class: 'form-control' %>
-  <label class="form-group">Introduction</label>
-  <%= f.text_area :introduction, placeholder: '自己紹介...', class: 'form-control' %>
-  <label class="form-group">icon</label>
-  <%= f.file_field :icon %>
-  <%= f.submit "Submit", class: 'btn btn-secondary' %>
+<div class="row">
+  <div class="col-2">
+    <%= attachment_image_tag @user, :icon, size: '100x100', fallback: 'no_image.png', class: 'img-thumbnail' %>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <label class="card-title">プロフィール画像の変更</label>
+      <%= f.attachment_field :icon, class: 'card-body' %>
+    </div>
+  </div>
+  <div class="col-2 offset-4">
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <%= link_to ' 退会する', users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "fas fa-minus-circle btn-block btn btn-danger" %>
+    <% end %>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-3">
+    <label class="form-group">ユーザー名</label>
+    <%= f.text_field :name, autofocus: true, id: "inputName, focusedInput", placeholder: "name", class: 'form-control' %>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-5">
+    <label class="form-group">Biography</label>
+    <%= f.text_area :introduction, placeholder: '自己紹介...', class: 'form-control' %>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-3">
+    <%= f.submit "編集を完了する", class: 'btn btn-success' %>
+  </div>
+</div>
 <% end %>

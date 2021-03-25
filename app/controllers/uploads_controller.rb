@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
     @upload.save
 
     respond_to do |format|
-      format.json { render :json => { url: @upload.image.url, upload_id: @upload.id } }
+      format.json { render json: { url: @upload.image.url, upload_id: @upload.id } }
     end
   end
 
@@ -14,7 +14,7 @@ class UploadsController < ApplicationController
     @upload.destroy
     FileUtils.remove_dir("#{Rails.root}/public/uploads/upload/image/#{@remember_id}")
     respond_to do |format|
-      format.json { render :json => { status: :ok } }
+      format.json { render json: { status: :ok } }
     end
   end
 

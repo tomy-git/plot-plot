@@ -1,3 +1,4 @@
+<%# 編集中 %>
 <h1>Plots#index</h1>
 <p>Find me in app/views/plots/index.html.erb</p>
 <% @plots.each do |plot| %>
@@ -28,3 +29,40 @@
     <%= plot.title %>
   <% end %>
 </div>
+
+<table class="table table-hover mt-3">
+  <thead class="thead-dark">
+    <tr>
+      <th>タイトル</th>
+      <th>ユーザー名</th>
+      <th>いいね数</th>
+      <th>タグ</th>
+      <th>投稿日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @plots.each do |plot| %>
+    <tr>
+      <th scope="row">
+        <%= plot.title %>
+      </th>
+      <td>
+        <%= plot.user.name %>
+      </td>
+      <td>
+        <%= plot.likes.count %> いいね
+      </td>
+      <td>
+
+      </td>
+      <td>
+        <%= plot.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      </td>
+      <td>
+        <%= link_to '作品を読む', plot_path(plot.id), class: 'btn btn-success' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

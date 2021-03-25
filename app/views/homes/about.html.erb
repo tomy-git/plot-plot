@@ -1,2 +1,50 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="row">
+  <h1 class="title">このサイトについて</h1>
+</div>
+<div class="shadow-lg p-3 mb-5 mt-3 bg-white rounded">
+  <div class="">
+    <h2>プロットプロットへようこそ！</h2>
+    <a>
+      このサイトでは思いついたプロット（物語のアイデア）を投稿して共有することができます。<br>
+      投稿された作品は全てクリエイティブ・コモンズによってライセンスされ、誰でも使用することができます。<br>
+    </a>
+  </div>
+  <div class="mt-3">
+    <h2>登録方法</h2>
+    <a>
+      このサイトでは全ての利用者に無料のアカウント登録をお願いしております。<br>
+      これは投稿された作品がライセンスされていることを明確にし、権利を保護するためです。<br>
+      アカウント登録は <%= link_to 'こちら', new_user_registration_path %> からどうぞ。
+    </a>
+  </div>
+  <div class="mt-3">
+    <h2>投稿方法</h2>
+    <a>
+      アカウント登録後、上部のメニューから「プロットを書いてみる」を選んで早速書いてみましょう！<br>
+      文字の大きさ、リンク、画像の投稿なんでもできます。<br>
+      タグをつけて検索しやすくすることも可能です！<br>
+    </a>
+  </div>
+  <div class="mt-3">
+    <h2>ライセンスについて</h2>
+    <a>
+      投稿された作品は、自動的にクリエイティブ・コモンズ・ライセンス（CCライセンス）によって保護されます。<br>
+      あなたは著作権を保持したまま作品を自由に流通させることができ、また利用者は下記の要件を満たすことで合法的に利用することができます。<br>
+    </a>
+  </div>
+  <p>
+  <button class="btn btn-primary collapsed mt-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    利用方法はこちら
+  </button>
+</p>
+  <div class="collapse" id="collapseExample" style="">
+    <h2>作品の利用方法</h2>
+    <a>
+      このサイトの全ての作品には著作権があり、CCライセンスによって保護されています。利用する方は<br>
+    </a>
+    <p class="font-weight-bold">クリエイターやクレジット表示の名前、著作権表示、ライセンスに関する注意書き、免責事項に関する注意書き、および資料へのリンク</p>
+    <p class="font-weight-bold">資料の改変をしたかどうかを示し、また改変の表示を保持する</p>
+    <a>などの条件を満たすようにしてください。</a><br>
+    <a>その他の詳しいライセンスの詳細は <%= link_to 'こちら', 'https://creativecommons.org/licenses/by/4.0/deed.ja' %></a>
+  </div>
+</div>

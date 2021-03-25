@@ -1,14 +1,30 @@
-inher it_from:
-  - .rubocop_airbnb.yml
-  - .rubocop_todo.yml
-# rubocopを使いたくないファイル
+# inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
 AllCops:
-  - 'db/**/*'
-  - 'bin/*'
-  - 'config/environments/*'
-  - 'config/application.rb'
-  - 'config/initializers/*'
-  - 'config/spring.rb'
-  - 'lib/tasks/*'
-  - 'vendor/**/*'
-  - 'path/ruby'
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'Gemfile'
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# 矢印は使わない
+HashSyntax:
+  EnforcedStyle: ruby19
