@@ -12,17 +12,20 @@ class Plot < ApplicationRecord
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags
 
+    # 古いタグの削除（うまく動かない）
     old_tags.each do |old|
-      self.tags.delete PlotTag.find_by(tag_name: old)
+      # self.plot_tags.delete PlotTag.find_by(tag_name: old)
+      self.tags.delete tags.find_by(tag_name: old)
     end
+
+    # 新しいタグの生成（動く）
     new_tags.each do |new|
       new_plot_tag = Tag.find_or_create_by(tag_name: new)
-      # tagmap = Tag.find_or_create_by(name: new)
-      # self.plot.tags << new_plot_tag
       self.tags << new_plot_tag
     end
   end
-  
+
+  # likeした人を抜き出す
   def liked_by?(user)
 		likes.where(user_id: user.id).exists?
 	end
