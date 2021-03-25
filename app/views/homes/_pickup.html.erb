@@ -5,8 +5,8 @@
   <% all_ranks.each do |rank| %>
   <div class="col-md-4 card bg-light">
     <h2 class="card-title mt-3"><%= rank.title %></h2>
-    <p class="card-body"><%= rank.body %></p>
-    <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo;</a></p>
+    <p class="card-body fixed-top"><%== rank.body %></p>
+    <p><%= link_to '詳しく見る', plot_path(rank.id), class: 'btn btn-secondary' %></p>
   </div>
   <% end %>
 </div>
