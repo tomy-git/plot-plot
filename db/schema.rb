@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_030807) do
     t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   end
 
   create_table "tagmaps", force: :cascade do |t|
@@ -70,8 +71,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_030807) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plot_id"], name: "index_tagmaps_on_plot_id"
-    t.index ["tag_id"], name: "index_tagmaps_on_tag_id"
+    t.index ["plot_id", "tag_id"], name: "index_tagmaps_on_plot_id_and_tag_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
@@ -92,8 +92,10 @@ ActiveRecord::Schema.define(version: 2021_03_09_030807) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "icon_id"
     t.string "name"
     t.string "introduction"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

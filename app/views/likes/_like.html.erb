@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-3 d-flex flex-wrap align-content-center">
+    <% if plot.liked_by?(current_user) %>
+      <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :delete, class: "fas fa-heart heart_red", remote: true %>
+    <% else %>
+      <%= link_to plot.likes.count, plot_likes_path(plot.id), method: :post, class: "fas fa-heart heart_blue", remote: true %>
+    <% end %>
+  </div>
+</div>

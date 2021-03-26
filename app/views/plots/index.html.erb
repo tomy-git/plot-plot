@@ -1,22 +1,3 @@
-<h1>Plots#index</h1>
-<p>Find me in app/views/plots/index.html.erb</p>
-<% @plots.each do |plot| %>
-  <%= link_to plot_path(plot.id) do %>
-    <%= plot.title %>
-  <% end %>
-    <%== plot.body %>
-    <%= plot.liked_users.count %>
-<% end %>
-<h2>tag list</h2>
-<% @tag_list.each do |list| %>
-  <%= link_to list.tag_name, tag_plots_path(tag_id: list.id) %>
-  <%= "(#{list.plots.count})" %>
-<% end %>
-<div class="row">
-  <%= link_to '新規作成', new_plot_path %>
-</div>
-<div class="row">
-  <% @all_ranks.each do |plot| %>
-    <%= plot.title %>
-  <% end %>
-</div>
+<h1 class="title">投稿作品</h1>
+<h4>いい作品には「いいね！」をつけて応援できます！</h4>
+<%= render 'plots/indexpage/body', plots: @plots %>

@@ -22,7 +22,11 @@ test:
 
 production:
   <<: *default
+<<<<<<< HEAD
   # database: db/production.sqlite3
+=======
+  # database: db/production.sqlite3     # 開発中はここがON、ここから下が全部コメントアウト
+>>>>>>> 932811125825003e77f575c06313b6e94946fe33
   database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
   encoding: utf8mb4
@@ -30,4 +34,8 @@ production:
   collation: utf8mb4_general_ci
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
+<<<<<<< HEAD
   password: <%= ENV['DB_PASSWORD'] %>
+=======
+  password: <%= ENV['DB_PASSWORD'] %>
+>>>>>>> 932811125825003e77f575c06313b6e94946fe33

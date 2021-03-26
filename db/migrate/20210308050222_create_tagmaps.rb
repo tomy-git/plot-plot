@@ -1,11 +1,10 @@
 class CreateTagmaps < ActiveRecord::Migration[5.2]
   def change
     create_table :tagmaps do |t|
-
-      # t.integer :plot_id
-      # t.integer :tag_id
-      t.references :plot, foreign_key: true
-      t.references :tag, foreign_key: true
+      t.integer :plot_id, foreign_key: true
+      t.integer :tag_id, foreign_key: true
+      t.index [:plot_id, :tag_id], unique: true
+      
       t.timestamps
     end
   end

@@ -1,12 +1,13 @@
 class LikesController < ApplicationController
   def create
-    @like = current_user.likes.create(plot_id: params[:plot_id])
-    redirect_back(fallback_location: root_path)
+    @plot = Plot.find(params[:plot_id])
+    like = @plot.likes.new(user_id: current_user.id)
+    like.save
   end
 
   def destroy
-    @like = Like.find_by(plot_id: params[:plot_id], user_id: current_user.id)
-    @like.destroy
-    redirect_back(fallback_location: root_path)
+    @plot = Plot.find(params[:plot_id])
+    like = @plot.likes.find_by(user_id: current_user.id)
+    like.destroy
   end
 end
