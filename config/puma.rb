@@ -38,6 +38,9 @@ plugin :tmp_restart
 
 # 以下、デプロイ用追記
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7cecbb57a9b13e620d8b9d8c6caf512ab57fb403
 bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 rails_root = Dir.pwd
 # 本番環境のみデーモン起動
@@ -52,6 +55,7 @@ if Rails.env.production?
   # デーモン
   daemonize
 end
+<<<<<<< HEAD
 =======
 # bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 # rails_root = Dir.pwd
@@ -68,3 +72,5 @@ end
 #   daemonize
 # end
 >>>>>>> develop
+=======
+>>>>>>> 7cecbb57a9b13e620d8b9d8c6caf512ab57fb403
