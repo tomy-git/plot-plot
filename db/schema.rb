@@ -71,8 +71,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_030807) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plot_id"], name: "index_tagmaps_on_plot_id"
-    t.index ["tag_id"], name: "index_tagmaps_on_tag_id"
+    t.index ["plot_id", "tag_id"], name: "index_tagmaps_on_plot_id_and_tag_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
