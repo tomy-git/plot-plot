@@ -1,32 +1,25 @@
-<h1>Plots#show</h1>
-<p>Find me in app/views/plots/show.html.erb</p>
+<%= render 'plots/showpage/body', plot: @plot %>
+<hr>
+<%= render 'plots/showpage/info', plot: @plot %>
+<hr>
 <div class="row">
-  <%= @plot.title %>
-</div>
-<div class="row">
-  <%== @plot.body %>
-</div>
-<div id="likes">
-  <%= render partial: 'likes/like', locals: { plot: @plot } %>
-</div>
-<div class="row">
-  <% @plot_tags.each do |tag| %>
-  <%= link_to tag.tag_name, tag_plots_path(tag_id: tag.id) %>
-  <%= "(#{tag.plots.count})" %>
-<% end %>
-</div>
-<div class="row">
-  <%= link_to '戻る', plots_path %>
-  <%= link_to '編集', edit_plot_path %>
-  <%= link_to '削除', plot_path, method: :delete %>
-</div>
-<div class="row comment-create">
-  <% if user_signed_in? %>
-    <%= render partial: 'comments/form', locals: { comment: @comment, plot: @plot } %>
-  <% end %>
-</div>
-<div class="row">
-  <div id="comment_area">
+  <div class="col-8" id="comment_area">
     <%= render partial: 'comments/index', locals: { comments: @comments } %>
+  </div>
+  <div class="col-4 comment-create">
+    <% if user_signed_in? %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, plot: @plot } %>
+    <% end %>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-6 btn-group" role="group" aria-label="Basic example">
+    <%= link_to '一覧に戻る', plots_path, class: 'btn btn-outline-primary' %>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <%= link_to '投稿の編集', edit_plot_path, class: 'btn btn-outline-primary' %>
+      <%= link_to '投稿を削除', plot_path, class: 'btn btn-outline-primary', method: :delete %>
+    <% else %>
+      <%= link_to 'ユーザーページへ', user_path(@user.id), class: 'btn btn-outline-primary' %>
+    <% end %>
   </div>
 </div>

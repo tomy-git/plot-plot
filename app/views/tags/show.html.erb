@@ -1,2 +1,10 @@
-<h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+<h1 class="title">タグ：<%= "#{@tag.tag_name}" %></h1>
+<h4>このタグは <%= @tag.plots.count %> 件登録されています</h4>
+<%= render 'plots/indexpage/body', plots: @plots %>
+<%# 他のタグを表示しておく %>
+<div class="row">
+  <div class="col">
+    <p>他のタグを見る</p>
+    <%= render 'tags', tag_list: @tag_list %>
+  </div>
+</div>

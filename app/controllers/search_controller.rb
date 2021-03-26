@@ -5,7 +5,7 @@ class SearchController < ApplicationController
     @how = params["search"]["how"]
     @datas = search_for(@how, @model, @value)
   end
-  
+
   private
 
   def match(model, value)
