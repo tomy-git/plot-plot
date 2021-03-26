@@ -1,0 +1,10 @@
+<%# フォロー・リムーブボタンの表示切り替え %>
+<% if user_signed_in? && user != current_user %>
+  <div id="follow_form">
+    <% if current_user.followed?(user) %>
+      <%= render partial: 'relationships/unfollow', locals: { user: @user } %>
+    <% else %>
+      <%= render partial: 'relationships/follow', locals: { user: @user } %>
+    <% end %>
+  </div>
+<% end %>

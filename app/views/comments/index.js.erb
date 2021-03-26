@@ -1,0 +1,10 @@
+$("#comment_area").html("<%= j(render 'index', { comments: @comment.plot.comments }) %>");
+$("textarea").val('');
+$('#star').empty('');
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'comment[star]',
+  half: false,
+});

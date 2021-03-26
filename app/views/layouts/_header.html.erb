@@ -1,0 +1,21 @@
+<header class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-lg">
+      <a class="navbar-dark navbar-brand" href="/">プロット・プロット</a>
+      <div class="collapse navbar-collapse">
+        <%# 検索バー %>
+        <%= render 'layouts/nav/search' %>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <%# プロット関連のメニュー %>
+        <%= render 'layouts/nav/menu-l' %>
+        <%# ナビゲーションバーのユーザーメニュー %>
+        <%= render 'layouts/nav/menu-r' %>
+      </div>
+    </div>
+  </nav>
+</header>

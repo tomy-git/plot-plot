@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import "summernote-bs4";
+@import "summernote-custom-theme.min";
+
+// Installed Font
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+
+// CSS Font Settings
+// CSS Reset and default font set.
+
+// 全体設定
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+// 各ページタイトル用
+.title {
+  font-family: 'Kosugi', sans-serif;
+}
+
+// 本文用、修正すること
+.test {
+  font-family: 'Noto Serif JP', serif;
+}

@@ -1,0 +1,8 @@
+<div class="row mt-3">
+  <% tag_list.each do |list| %>
+    <div class="mr-3">
+      <%= link_to list.tag_name, tag_path(list.id), class: 'btn btn-sm btn-outline-secondary' %>
+      <%= "(#{list.plots.count})" %>
+    </div>
+  <% end %>
+</div>

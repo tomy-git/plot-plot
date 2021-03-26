@@ -1,0 +1,50 @@
+<h1 class="title">検索結果</h1>
+<% if @model == "user" %>
+<h4>'<%= @value %>'</h4>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th>ユーザー名</th>
+      <th>イントロダクション</th>
+      <th></th>
+    </tr>
+  </thead>
+<% @datas.each do |user| %>
+  <tbody>
+    <tr>
+      <th scope="row">
+      <%= link_to user_path(user.id) do %>
+      <%= attachment_image_tag user, :icon, size: '50x50', fallback: 'no_image.png' %>
+      <% end %>
+      </th>
+      <td><%= user.name %></td>
+      <td><%= user.introduction %></td>
+      <td><%= link_to 'ユーザーページを見る', user_path(user.id), class: 'btn btn-success' %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
+<% elsif @model == "plot" %>
+<h4>'<%= @value %>'</h4>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>タイトル</th>
+      <th>ユーザー</th>
+      <th></th>
+    </tr>
+  </thead>
+<% @datas.each do |plot| %>
+  <tbody>
+    <tr>
+      <th scope="row">
+      <%= plot.title %>
+      </th>
+      <td><%= plot.user.name %></td>
+      <td><%= link_to '作品を見る', plot_path(plot.id), class: 'btn btn-success' %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>

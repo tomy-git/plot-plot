@@ -1,0 +1,31 @@
+<div class="d-flex flex-column mb-3">
+  <%= render 'info', user: @user %>
+</div>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">投稿作品</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">いいねした作品</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="item3-tab" data-toggle="tab" href="#item3" role="tab" aria-controls="item3" aria-selected="false">フォロ中ー</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="item4-tab" data-toggle="tab" href="#item4" role="tab" aria-controls="item4" aria-selected="false">フォロワー</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+    <%= render 'plot', user: @user %>
+  </div>
+  <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+    <%= render 'like', user: @user %>
+  </div>
+  <div class="tab-pane fade" id="item3" role="tabpanel" aria-labelledby="item3-tab">
+    <%= render 'relationships/index', user: @user %>
+  </div>
+  <div class="tab-pane fade" id="item4" role="tabpanel" aria-labelledby="item4-tab">
+    <%= render 'relationships/show', user: @user %>
+  </div>
+</div>

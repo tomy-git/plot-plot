@@ -11,6 +11,7 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -29,3 +30,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# dotenv-rails
+/.env
+/db/seeds.rb

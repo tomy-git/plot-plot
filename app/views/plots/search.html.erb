@@ -1,0 +1,14 @@
+<%# タグのリンクをクリックしたらそのタグの記事だけがずらっと出るようにしたい %>
+
+<% @tag_list.each do |list| %>
+  <%#= link_to list.tag_name, tag_path(tag_id: list.id) %>
+  <%= "(#{list.plots.count})" %>
+<% end %>
+<br>
+<%= "#{@tag.tag_name}" %>
+<br>
+<% @plots.each do |plot| %>
+  <%= link_to plot.title, plot_path(plot.id) %>
+<% end %>
+<br>
+<%= link_to 'home', root_path %>
