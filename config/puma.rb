@@ -50,4 +50,4 @@ plugin :tmp_restart
 #   )
 #   # デーモン
 #   daemonize
-end
+# end
