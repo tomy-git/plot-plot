@@ -23,12 +23,12 @@ test:
 production:
   <<: *default
   # ---- 以下、デプロイ用追記。開発中はコメントアウト、本番環境ではONにすること！ ----
-  database: db/production.sqlite3 # 開発中はここがON、ここから下が全部コメントアウト
-  # database: <%= ENV['DB_DATABASE'] %>
-  # adapter: mysql2
-  # encoding: utf8mb4
-  # charset: utf8mb4
-  # collation: utf8mb4_general_ci
-  # host: <%= ENV['DB_HOST'] %>
-  # username: <%= ENV['DB_USERNAME'] %>
-  # password: <%= ENV['DB_PASSWORD'] %>
+  # database: db/production.sqlite3 # 開発中はここがON、ここから下が全部コメントアウト
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
