@@ -58,7 +58,7 @@ Plot.create!(
 
 Plot.create!(
   title: '千夜一夜物語',
-  body: '<p>イスラームの世界観</p>',
+  body: '<p>アラブ地域</p>',
   user_id: 1,
 )
 
