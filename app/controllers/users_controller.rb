@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
 
   def show
@@ -21,18 +21,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
-
-  # def followed
-  #   @user = User.find(params[:id])
-  #   @users = @user.followed
-  #   render 'relationships/index'
-  # end
-
-  # def followers
-  #   @user = User.find(params[:id])
-  #   @users = @user.followers
-  #   render 'relationships/show'
-  # end
 
   def hide
     @user = User.find(params[:id])

@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   def show
     @tag_list = Tag.all
     @tag = Tag.find(params[:id])
-    @plots = @tag.plots.all
+    @plots = @tag.plots.page(params[:page])
   end
 
   def search

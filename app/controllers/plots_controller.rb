@@ -3,7 +3,7 @@ class PlotsController < ApplicationController
   before_action :user_check, only: [:edit, :destroy, :update]
 
   def index
-    @plots = Plot.all
+    @plots = Plot.page(params[:page])
     @tag_list = Tag.all
     @plot = current_user.plots.new
   end
