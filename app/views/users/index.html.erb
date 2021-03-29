@@ -6,6 +6,7 @@
       <th></th>
       <th>ユーザー名</th>
       <th>イントロダクション</th>
+      <th>フォロワー数</th>
       <th></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
       </th>
       <td><%= user.name %></td>
       <td><%= user.introduction %></td>
+      <td><%= user.followers.count %> フォロワー</td>
       <td><%= link_to 'ユーザーページを見る', user_path(user.id), class: 'btn btn-success' %></td>
     </tr>
     <% end %>
