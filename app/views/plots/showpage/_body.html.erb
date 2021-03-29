@@ -1,19 +1,22 @@
 <div class="row mt-5">
-  <div class="col-8 offset-4">
+  <div class="col-8 offset-2">
     <h1 class="title"><%= plot.title %></h1>
   </div>
+  <div class="col-2"></div>
 </div>
 <div class="row mt-5">
-  <div class="col-8 offset-4">
+  <div class="col-8 offset-2">
     <%== plot.body %>
   </div>
+  <div class="col-2"></div>
 </div>
 <div class="row mt-3">
-  <div class="col-8 offset-4">
+  <div class="col-8 offset-2">
     <h5>登録されたタグ</h5>
     <% @plot_tags.each do |tag| %>
       <%= link_to tag.tag_name, tag_path(tag.id), class: 'btn btn-sm btn-outline-secondary' %>
       <%= "(#{tag.plots.count})" %>
     <% end %>
   </div>
+  <div class="col-2"></div>
 </div>
