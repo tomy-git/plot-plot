@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
   def search
-    @model = params["search"]["model"]
-    @value = params["search"]["value"]
-    @how = params["search"]["how"]
+    @model = params['search']['model']
+    @value = params['search']['value']
+    @how = params['search']['how']
     @datas = search_for(@how, @model, @value)
   end
 
@@ -18,25 +18,25 @@ class SearchController < ApplicationController
 
   def forward(model, value)
     if model == 'User'
-      User.where("name LIKE ?", "#{value}%")
+      User.where('name LIKE ?', "#{value}%")
     elsif model == 'plot'
-      Plot.where("title LIKE ?", "#{value}%")
+      Plot.where('title LIKE ?', "#{value}%")
     end
   end
 
-  def backward(model ,value)
+  def backward(model, value)
     if model == 'user'
-      User.where("name LIKE ?", "%#{value}")
+      User.where('name LIKE ?', "%#{value}")
     elsif model == 'plot'
-      Plot.where("title LIKE ?", "%#{value}")
+      Plot.where('title LIKE ?', "%#{value}")
     end
   end
 
   def partical(model, value)
     if model == 'user'
-      User.where("name LIKE ?", "%#{value}%")
+      User.where('name LIKE ?', "%#{value}%")
     elsif model == 'plot'
-      Plot.where("title LIKE ?", "%#{value}%")
+      Plot.where('title LIKE ?', "%#{value}%")
     end
   end
 
