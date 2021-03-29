@@ -3,7 +3,7 @@ class PlotsController < ApplicationController
   before_action :user_check, only: [:edit, :destroy, :update]
 
   def index
-    @plots = Plot.all
+    @plots = Plot.page(params[:page])
     @tag_list = Tag.all
     @plot = current_user.plots.new
   end
@@ -27,8 +27,9 @@ class PlotsController < ApplicationController
     if @plot.save
       @plot.save_tag(tag_list)
       redirect_to plot_path(@plot)
+      flash[:notice] = "作品を投稿しました"
     else
-      redirect_back(fallback_location: root_path)
+      render 'new'
     end
   end
 
@@ -44,15 +45,20 @@ class PlotsController < ApplicationController
     if @plot.update_attributes(plot_params)
       @plot.save_tag(tag_list)
       redirect_to plot_path(@plot.id)
+      flash[:notice] = "作品の編集に成功しました"
     else
-      redirect_back(fallback_location: root_path)
+      render 'edit'
     end
   end
 
   def destroy
     @plot = Plot.find(params[:id])
-    @plot.destroy
-    redirect_to plots_path
+    if @plot.destroy
+      redirect_to plots_path
+      flash[:notice] = "投稿を削除しました"
+    else
+      render 'show'
+    end
   end
 
   def search

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
 
   def show
@@ -18,21 +18,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(current_user.id)
+      flash[:notice] = "プロフィールの変更に成功しました"
+    else
+      render 'edit'
+    end
   end
-
-  # def followed
-  #   @user = User.find(params[:id])
-  #   @users = @user.followed
-  #   render 'relationships/index'
-  # end
-
-  # def followers
-  #   @user = User.find(params[:id])
-  #   @users = @user.followers
-  #   render 'relationships/show'
-  # end
 
   def hide
     @user = User.find(params[:id])

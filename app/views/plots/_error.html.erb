@@ -1,0 +1,8 @@
+<% if plot.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">投稿に失敗しました</h4>
+  <% plot.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</div>
+<% end %>

@@ -8,6 +8,7 @@
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <%= link_to " マイページ", user_path(current_user.id), class: 'dropdown-item fas fa-user' %>
         <%= link_to " プロットを書く", new_plot_path, class: 'dropdown-item fas fa-book-open' %>
+        <%= link_to " 利用規約", convention_path, class: 'dropdown-item fas fab fa-readme' %>
         <div class="dropdown-divider"></div>    <%# 仕切り %>
         <%= link_to " ログアウト", destroy_user_session_path, class: 'dropdown-item fas fa-sign-out-alt', method: :delete  %>
       </div>

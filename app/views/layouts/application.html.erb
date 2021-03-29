@@ -14,9 +14,10 @@
     <%#= ヘッダー %>
     <%= render 'layouts/header' %>
       <main class="mb-auto">
-        <div>
-          <%# フラッシュを入れる予定 %>
-        </div>
+        <%# フラッシュ %>
+        <% if flash[:notice] %>
+          <div class="row d-flex justify-content-center mt-1 mb-1"><%= render 'layouts/flash' %></div>
+        <% end %>
         <div class="container px-5 px-sm-0 mt-3">
           <%= yield %>
         </div>

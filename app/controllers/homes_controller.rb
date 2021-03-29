@@ -5,4 +5,7 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  def convention
+  end
 end

@@ -1,17 +1,20 @@
 <ul class="navbar-nav">
   <% if user_signed_in? %>
     <li>
-      <%= link_to " 投稿されたプロットを見る", plots_path, class: 'nav-link text-light fas fa-book-reader' %>
+      <%= link_to " プロットを見る", plots_path, class: 'nav-link text-light fas fa-book-reader' %>
     </li>
     <li>
-      <%= link_to " 他のユーザーを見る", users_path, class: 'nav-link text-light fas fa-users' %>
+      <%= link_to " ユーザーを見る", users_path, class: 'nav-link text-light fas fa-users' %>
     </li>
     <li>
-      <%= link_to " タグから探す", tags_path, class: 'nav-link text-light fas fa-tags' %>
+      <%= link_to " タグ一覧を見る", tags_path, class: 'nav-link text-light fas fa-tags' %>
     </li>
   <% else %>
     <li>
       <%= link_to " このサイトについて", about_path, class: 'nav-link text-light fas fa-info-circle'%>
+    </li>
+    <li>
+      <%= link_to " 利用規約", convention_path, class: 'nav-link text-light fas fab fa-readme' %>
     </li>
   <% end %>
 </ul>

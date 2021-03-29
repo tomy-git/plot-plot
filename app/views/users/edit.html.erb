@@ -1,3 +1,6 @@
+<% if @user.errors.any? %>
+  <%= render 'error', user: @user %>
+<% end %>
 <h1 class="title">プロフィール編集</h1>
 <%= form_with model: @user, local: true do |f| %>
 <div class="row">
@@ -12,7 +15,7 @@
   </div>
   <div class="col-2 offset-4">
     <% if user_signed_in? && @user.id == current_user.id %>
-      <%= link_to ' 退会する', users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "fas fa-minus-circle btn-block btn btn-danger" %>
+      <%= link_to ' 退会する', users_hide_path(current_user), method: :put, data: { confirm: "本当に退会しますか？\n退会するとログインができなくなります" }, class: "fas fa-minus-circle btn-block btn btn-danger" %>
     <% end %>
   </div>
 </div>

@@ -33,4 +33,3 @@
 
 # dotenv-rails
 /.env
-/db/seeds.rb
