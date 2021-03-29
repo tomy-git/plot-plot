@@ -1,6 +1,6 @@
 class PlotsController < ApplicationController
   before_action :authenticate_user!
-  before_action :user_check, only: [:edit, :destroy, :update]
+  before_action :user_check, only: %i[edit destroy update]
 
   def index
     @plots = Plot.page(params[:page])
@@ -27,7 +27,7 @@ class PlotsController < ApplicationController
     if @plot.save
       @plot.save_tag(tag_list)
       redirect_to plot_path(@plot)
-      flash[:notice] = "作品を投稿しました"
+      flash[:notice] = '作品を投稿しました'
     else
       render 'new'
     end
@@ -45,7 +45,7 @@ class PlotsController < ApplicationController
     if @plot.update_attributes(plot_params)
       @plot.save_tag(tag_list)
       redirect_to plot_path(@plot.id)
-      flash[:notice] = "作品の編集に成功しました"
+      flash[:notice] = '作品の編集に成功しました'
     else
       render 'edit'
     end
@@ -55,7 +55,7 @@ class PlotsController < ApplicationController
     @plot = Plot.find(params[:id])
     if @plot.destroy
       redirect_to plots_path
-      flash[:notice] = "投稿を削除しました"
+      flash[:notice] = '投稿を削除しました'
     else
       render 'show'
     end
