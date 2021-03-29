@@ -16,6 +16,12 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  # バリデーション
+  # nameは1～20文字までで同一・空はダメ
+  validates :name, presence: true, uniqueness: true, length: { minimum: 1, maximum: 20 }
+  # introduction200文字まで
+  validates :introduction, length: { maximum: 200 }
+
   def active_for_authentication?
     super && (self.is_deleted == false )
   end

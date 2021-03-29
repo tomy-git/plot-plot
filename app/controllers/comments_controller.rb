@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
     @comment = @plot.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    render :index
+    render 'index'
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    render :index
+    render 'index'
   end
 
   private

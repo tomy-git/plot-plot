@@ -77,6 +77,7 @@ gem "refile-mini_magick"
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'rails-i18n'
 
 # summernote関連
 gem 'summernote-rails', '~> 0.8.10.0'

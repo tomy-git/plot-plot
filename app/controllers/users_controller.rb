@@ -18,8 +18,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(current_user.id)
+      flash[:notice] = "プロフィールの変更に成功しました"
+    else
+      render 'edit'
+    end
   end
 
   def hide

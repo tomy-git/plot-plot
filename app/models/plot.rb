@@ -6,6 +6,12 @@ class Plot < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
 
+  # バリデーション
+  # titleは1～50文字までで同一・空はダメ
+  validates :title, presence: true, uniqueness: true, length: { minimum: 1, maximum: 50 }
+  # bodyは空はダメ、summernoteのタグが入ってしまうため最小は5
+  validates :body, presence: true, length: { minimum: 5 }
+
   # タグの作成・更新に使用します
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name)unless self.tags.nil?
