@@ -85,7 +85,6 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
-# ここまで
 
 gem 'dotenv-rails'
 group :production do
@@ -94,8 +93,3 @@ end
 
 # --debug--
 gem 'pry-byebug'
-
-# deploy
-# gem 'capistrano'
-# gem 'capistrano-rails'
-# gem 'capistrano-bundler'
