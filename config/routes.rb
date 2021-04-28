@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # homes
   root 'homes#top'
   get  'about', to: 'homes#about'
-  get 'convention', to: 'homes#convention'
+  get  'convention', to: 'homes#convention'
+  get  'update', to: 'homes#update'
 
   # users
   devise_for :users
