@@ -8,4 +8,7 @@ class HomesController < ApplicationController
 
   def convention
   end
+
+  def update
+  end
 end
