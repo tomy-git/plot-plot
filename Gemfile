@@ -74,10 +74,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem 'kaminari'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'rails-i18n'
+gem 'kaminari'      # paging
+gem 'rails-i18n'    # devise日本語化
 
 # summernote関連
 gem 'summernote-rails', '~> 0.8.10.0'
@@ -85,8 +83,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
-
-gem 'dotenv-rails'
+gem 'dotenv-rails'  # 環境変数
 group :production do
   gem 'mysql2'
 end
