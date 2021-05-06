@@ -59,6 +59,8 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -84,9 +86,11 @@ gem 'carrierwave'
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
 gem 'dotenv-rails'  # 環境変数
-group :production do
-  gem 'mysql2'
-end
+
+# group :production do
+#   gem 'mysql2'
+# end
 
 # --debug--
+gem 'pry-rails'
 gem 'pry-byebug'
